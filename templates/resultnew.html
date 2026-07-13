@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDI Prediction Result - Human Development Index Engine</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="glass-bg-glow"></div>
+    <div class="glass-bg-glow secondary"></div>
+
+    <div class="app-container small-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-earth-americas"></i></span>
+                <span class="logo-text">HDI Predictor</span>
+            </div>
+            <a href="/" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Run Another Prediction</a>
+        </header>
+
+        <!-- Result Card -->
+        <main class="result-card glass-card">
+            <div class="result-header">
+                <span class="result-badge">Prediction Complete</span>
+                <h2>Human Development Assessment</h2>
+                <h3 class="result-target-country">{{ country }}</h3>
+            </div>
+
+            <!-- HDI Score Gauge/Circle -->
+            <div class="score-container {{ color_class }}">
+                <div class="score-circle-wrapper">
+                    <svg class="progress-ring" width="180" height="180">
+                        <circle class="progress-ring__background" stroke="rgba(255,255,255,0.05)" stroke-width="12" fill="transparent" r="76" cx="90" cy="90"/>
+                        <circle class="progress-ring__circle" stroke="currentColor" stroke-width="12" fill="transparent" r="76" cx="90" cy="90" id="progress-indicator"/>
+                    </svg>
+                    <div class="score-value">
+                        <span class="value">{{ "%.3f"|format(predicted_hdi) }}</span>
+                        <span class="label">HDI SCORE</span>
+                    </div>
+                </div>
+
+                <div class="tier-indicator">
+                    <span class="tier-badge {{ color_class }}">{{ category }} Development</span>
+                </div>
+            </div>
+
+            <p class="tier-description">{{ description }}</p>
+
+            <!-- Input Variables Summary Table -->
+            <div class="metrics-summary">
+                <h3>Input Development Indicators</h3>
+                <div class="metrics-summary-grid">
+                    <div class="metric-summary-box">
+                        <span class="metric-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+                        <div class="metric-info">
+                            <span class="label">Life Expectancy</span>
+                            <span class="val">{{ life_expectancy }} Years</span>
+                        </div>
+                    </div>
+                    <div class="metric-summary-box">
+                        <span class="metric-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <div class="metric-info">
+                            <span class="label">Expected Schooling</span>
+                            <span class="val">{{ expected_years_schooling }} Years</span>
+                        </div>
+                    </div>
+                    <div class="metric-summary-box">
+                        <span class="metric-icon"><i class="fa-solid fa-book-open"></i></span>
+                        <div class="metric-info">
+                            <span class="label">Mean Schooling</span>
+                            <span class="val">{{ mean_years_schooling }} Years</span>
+                        </div>
+                    </div>
+                    <div class="metric-summary-box">
+                        <span class="metric-icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                        <div class="metric-info">
+                            <span class="label">GNI Per Capita</span>
+                            <span class="val">${{ "{:,.0f}".format(gni_per_capita) }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Policy Recommendations / Interventions -->
+            <div class="recommendations">
+                <h3><i class="fa-solid fa-lightbulb"></i> Strategic Interventions & Recommendations</h3>
+                <ul class="rec-list">
+                    {% if category == 'Low' %}
+                        <li><i class="fa-solid fa-circle-chevron-right text-red"></i> <strong>Healthcare Infrastructure:</strong> Prioritize primary healthcare funding, sanitation access, and maternal healthcare to lift life expectancy above the 60-year critical floor.</li>
+                        <li><i class="fa-solid fa-circle-chevron-right text-red"></i> <strong>Educational Retention:</strong> Introduce school meal programs and subsidize materials to improve Expected Years of Schooling, driving basic literacy up.</li>
+                        <li><i class="fa-solid fa-circle-chevron-right text-red"></i> <strong>Microfinance & Aid:</strong> Drive local agriculture and microfinance initiatives to build income capacity starting from GNI per capita baseline.</li>
+                    {% elif category == 'Medium' %}
+                        <li><i class="fa-solid fa-circle-chevron-right text-yellow"></i> <strong>Secondary Education Expansion:</strong> Expand capacity in technical colleges and secondary education to narrow the gap between Expected and Mean Years of Schooling.</li>
+                        <li><i class="fa-solid fa-circle-chevron-right text-yellow"></i> <strong>Universal Health Coverage:</strong> Improve access to municipal hospitals and specialize in combating non-communicable diseases to push lifespan past 72 years.</li>
+                        <li><i class="fa-solid fa-circle-chevron-right text-yellow"></i> <strong>Economic Diversification:</strong> Transition workforce from agricultural dependencies into manufacturing and digital services to elevate income indices.</li>
+                    {% elif category == 'High' %}
+                        <li><i class="fa-solid fa-circle-chevron-right text-green"></i> <strong>Tertiary Education Funding:</strong> Offer research grants and make tertiary education more accessible to boost Mean Years of Schooling beyond 10.</li>
+                        <li><i class="fa-solid fa-circle-chevron-right text-green"></i> <strong>Innovation-Driven Economy:</strong> Invest in technological infrastructure and startups to shift GNI per capita closer to standard high-income brackets (above $30,000).</li>
+                        <li><i class="fa-solid fa-circle-chevron-right text-green"></i> <strong>Elderly Care & Prevention:</strong> Strengthen social security and geriatric healthcare to maintain life expectancies above 78.</li>
+                    {% else %}
+                        <li><i class="fa-solid fa-circle-chevron-right text-blue"></i> <strong>Next-Gen Education:</strong> Invest in lifelong learning, research centers of excellence, and specialized AI/digital training paradigms.</li>
+                        <li><i class="fa-solid fa-circle-chevron-right text-blue"></i> <strong>Advanced Healthcare:</strong> Integrate precision medicine and preventive healthcare pipelines to push life expectancy boundaries beyond 84 years.</li>
+                        <li><i class="fa-solid fa-circle-chevron-right text-blue"></i> <strong>Sustainable Prosperity:</strong> Balance high GNI levels with green initiatives, sustainable wealth distribution models, and work-life balance frameworks.</li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="result-actions">
+                <a href="/" class="btn btn-secondary"><i class="fa-solid fa-arrow-rotate-left"></i> Predict Another</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script to update SVG circular gauge percentage -->
+    <script>
+        const score = {{ predicted_hdi }};
+        const circle = document.getElementById('progress-indicator');
+        const radius = circle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
+        
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        // Stroke offset depends on score (score goes from 0.0 to 1.0)
+        const offset = circumference - (score * circumference);
+        circle.style.strokeDashoffset = offset;
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDI Predictor - Human Development Index Engine</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="glass-bg-glow"></div>
+    <div class="glass-bg-glow secondary"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-earth-americas"></i></span>
+                <span class="logo-text">HDI Predictor</span>
+            </div>
+            <div class="header-tag">A Comprehensive Measure of Well-Being</div>
+        </header>
+
+        <!-- Main Grid Layout -->
+        <main class="main-grid">
+            
+            <!-- Left Panel: Introduction & Prediction Form -->
+            <section class="form-panel glass-card">
+                <div class="panel-header">
+                    <h2>Predict Development Index</h2>
+                    <p class="panel-subtitle">Estimate human development tiers by simulating critical health, education, and economic indicators.</p>
+                </div>
+
+                {% if errors %}
+                <div class="alert alert-error">
+                    <div class="alert-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                    <div class="alert-content">
+                        <strong>Invalid Input:</strong>
+                        <ul>
+                            {% for error in errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+
+                <form action="/predict" method="POST" class="predict-form" id="hdi-form">
+                    <!-- Country Preset Dropdown -->
+                    <div class="form-group">
+                        <label for="country">
+                            <i class="fa-solid fa-globe"></i> Load Country Preset (Optional)
+                        </label>
+                        <select name="country" id="country" class="form-select">
+                            <option value="Custom Country">-- Customize from scratch --</option>
+                            {% for c in countries %}
+                            <option value="{{ c }}">{{ c }}</option>
+                            {% endfor %}
+                        </select>
+                        <small class="form-help">Selecting a country will auto-populate the standard index statistics below.</small>
+                    </div>
+
+                    <div class="form-divider"><span>OR DEFINE METRICS</span></div>
+
+                    <!-- Life Expectancy -->
+                    <div class="form-group">
+                        <label for="life_expectancy">
+                            <i class="fa-solid fa-heart-pulse"></i> Life Expectancy at Birth (Years)
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.1" name="life_expectancy" id="life_expectancy" min="20" max="95" required placeholder="e.g. 78.5">
+                            <span class="input-unit">Years</span>
+                        </div>
+                        <input type="range" class="form-range" id="life_exp_range" min="20" max="95" step="0.1">
+                        <small class="form-help">Expected lifetime range: 20 to 95 years.</small>
+                    </div>
+
+                    <!-- Expected Years of Schooling -->
+                    <div class="form-group">
+                        <label for="expected_years_schooling">
+                            <i class="fa-solid fa-graduation-cap"></i> Expected Years of Schooling (Years)
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.1" name="expected_years_schooling" id="expected_years_schooling" min="0" max="25" required placeholder="e.g. 14.5">
+                            <span class="input-unit">Years</span>
+                        </div>
+                        <input type="range" class="form-range" id="exp_sch_range" min="0" max="25" step="0.1">
+                        <small class="form-help">Total years of schooling expected for a child. Range: 0 to 25 years.</small>
+                    </div>
+
+                    <!-- Mean Years of Schooling -->
+                    <div class="form-group">
+                        <label for="mean_years_schooling">
+                            <i class="fa-solid fa-book-open"></i> Mean Years of Schooling (Years)
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.1" name="mean_years_schooling" id="mean_years_schooling" min="0" max="20" required placeholder="e.g. 9.2">
+                            <span class="input-unit">Years</span>
+                        </div>
+                        <input type="range" class="form-range" id="mean_sch_range" min="0" max="20" step="0.1">
+                        <small class="form-help">Average schooling years for adults (25+). Must not exceed expected years. Range: 0 to 20 years.</small>
+                    </div>
+
+                    <!-- GNI Per Capita -->
+                    <div class="form-group">
+                        <label for="gni_per_capita">
+                            <i class="fa-solid fa-sack-dollar"></i> GNI Per Capita (PPP $)
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" step="1" name="gni_per_capita" id="gni_per_capita" min="100" max="150000" required placeholder="e.g. 15000">
+                            <span class="input-unit">USD</span>
+                        </div>
+                        <input type="range" class="form-range" id="gni_range" min="100" max="150000" step="100">
+                        <small class="form-help">Gross National Income per capita in purchasing power parity dollars. Range: $100 to $150,000.</small>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-submit">
+                        <span>Predict HDI Score & Tier</span>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Right Panel: Info & Visualization Dashboard -->
+            <section class="dashboard-panel">
+                <!-- Info Card -->
+                <div class="glass-card info-card">
+                    <span class="info-badge">About HDI</span>
+                    <h2>The Dimensions of Development</h2>
+                    <p>The <strong>Human Development Index (HDI)</strong> is a statistical composite index of life expectancy, education, and per capita income indicators, used to rank countries into four tiers of human development.</p>
+                    <div class="dimensions-grid">
+                        <div class="dimension-box">
+                            <div class="dim-icon life"><i class="fa-solid fa-heart-pulse"></i></div>
+                            <div class="dim-text">
+                                <strong>Long & Healthy Life</strong>
+                                <span>Life Expectancy at Birth</span>
+                            </div>
+                        </div>
+                        <div class="dimension-box education">
+                            <div class="dim-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="dim-text">
+                                <strong>Knowledge Access</strong>
+                                <span>Expected & Mean Schooling</span>
+                            </div>
+                        </div>
+                        <div class="dimension-box income">
+                            <div class="dim-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                            <div class="dim-text">
+                                <strong>Decent Living Standard</strong>
+                                <span>GNI Per Capita (PPP $)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDA Visualization Tabs -->
+                <div class="glass-card viz-card">
+                    <div class="viz-header">
+                        <h3><i class="fa-solid fa-chart-line"></i> Exploratory Data Analysis Dashboard</h3>
+                        <p>Real-world insights and correlations generated during model training.</p>
+                    </div>
+
+                    <!-- Tabs Nav -->
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" onclick="switchTab(event, 'tab-scatter')">Correlation</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-dist')">Distribution</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-heatmap')">Feature Heatmap</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-model')">Model Accuracy</button>
+                    </div>
+
+                    <!-- Tabs Content -->
+                    <div class="tabs-content">
+                        <!-- Tab 1 -->
+                        <div id="tab-scatter" class="tab-pane active">
+                            <img src="{{ url_for('static', filename='images/scatterplot.png') }}" alt="Life Expectancy vs HDI" class="viz-img">
+                            <p class="viz-caption">Strong linear mapping of Life Expectancy against predicted HDI scores across different classes.</p>
+                        </div>
+                        <!-- Tab 2 -->
+                        <div id="tab-dist" class="tab-pane">
+                            <img src="{{ url_for('static', filename='images/distplot.png') }}" alt="HDI Score Distribution" class="viz-img">
+                            <p class="viz-caption">Frequency distribution showing peaks in the Medium and High tiers of development.</p>
+                        </div>
+                        <!-- Tab 3 -->
+                        <div id="tab-heatmap" class="tab-pane">
+                            <img src="{{ url_for('static', filename='images/heatmap.png') }}" alt="Feature Correlations" class="viz-img">
+                            <p class="viz-caption">Correlation matrix showcasing GNI Per Capita and education's impact on the overall index.</p>
+                        </div>
+                        <!-- Tab 4 -->
+                        <div id="tab-model" class="tab-pane">
+                            <img src="{{ url_for('static', filename='images/actual_vs_predicted.png') }}" alt="Actual vs Predicted" class="viz-img">
+                            <p class="viz-caption">Regression model evaluation showing tight alignment on actual vs predicted values (Test R²: 0.9997).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts for interactivity -->
+    <script>
+        // Sync Range Sliders and inputs
+        const syncInputs = (inputId, rangeId) => {
+            const input = document.getElementById(inputId);
+            const range = document.getElementById(rangeId);
+            
+            input.addEventListener('input', () => { range.value = input.value; });
+            range.addEventListener('input', () => { input.value = range.value; });
+        };
+        
+        syncInputs('life_expectancy', 'life_exp_range');
+        syncInputs('expected_years_schooling', 'exp_sch_range');
+        syncInputs('mean_years_schooling', 'mean_sch_range');
+        syncInputs('gni_per_capita', 'gni_range');
+
+        // Dropdown Auto-population
+        document.getElementById('country').addEventListener('change', function() {
+            const countryName = this.value;
+            if (countryName === "Custom Country") {
+                return; // Let user define custom parameters
+            }
+            
+            fetch(`/get_country_data/${encodeURIComponent(countryName)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) return;
+                    
+                    document.getElementById('life_expectancy').value = data.life_expectancy;
+                    document.getElementById('life_exp_range').value = data.life_expectancy;
+                    
+                    document.getElementById('expected_years_schooling').value = data.expected_years_schooling;
+                    document.getElementById('exp_sch_range').value = data.expected_years_schooling;
+                    
+                    document.getElementById('mean_years_schooling').value = data.mean_years_schooling;
+                    document.getElementById('mean_sch_range').value = data.mean_years_schooling;
+                    
+                    document.getElementById('gni_per_capita').value = data.gni_per_capita;
+                    document.getElementById('gni_range').value = data.gni_per_capita;
+                })
+                .catch(err => console.error("Error fetching country metrics:", err));
+        });
+
+        // Tab Switcher
+        function switchTab(evt, tabId) {
+            const tabpanes = document.getElementsByClassName("tab-pane");
+            for (let i = 0; i < tabpanes.length; i++) {
+                tabpanes[i].classList.remove("active");
+            }
+            const tablinks = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>

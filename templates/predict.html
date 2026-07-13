@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDI Predictor - Predict</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="glass-bg-glow"></div>
+    <div class="glass-bg-glow secondary"></div>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-earth-americas"></i></span>
+                <span class="logo-text">HDI Predictor</span>
+            </div>
+            <a href="/" class="btn btn-secondary">Home</a>
+        </header>
+
+        <div class="page-grid">
+            <section class="glass-card predict-panel">
+                <div class="panel-header">
+                    <h2>Predict Development Index</h2>
+                    <p class="panel-subtitle">Use preset countries or enter your own values to estimate HDI and development category.</p>
+                </div>
+
+                {% if errors %}
+                <div class="alert alert-error">
+                    <div class="alert-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                    <div class="alert-content">
+                        <strong>Invalid Input:</strong>
+                        <ul>
+                            {% for error in errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+
+                <form action="/predict" method="POST" class="predict-form" id="hdi-form">
+                    <div class="form-group">
+                        <label for="country"><i class="fa-solid fa-globe"></i> Select Country Preset</label>
+                        <select name="country" id="country" class="form-select">
+                            <option value="Custom Country">-- Choose preset or enter custom values --</option>
+                            <optgroup label="Featured Countries">
+                                {% for c in featured_countries %}
+                                <option value="{{ c }}">{{ c }}</option>
+                                {% endfor %}
+                            </optgroup>
+                            <optgroup label="All Available Countries">
+                                {% for c in countries %}
+                                    {% if c not in featured_countries %}
+                                    <option value="{{ c }}">{{ c }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </optgroup>
+                        </select>
+                        <small class="form-help">Pick a country preset or keep custom values for any nation in the dataset.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="life_expectancy"><i class="fa-solid fa-heart-pulse"></i> Life Expectancy at Birth</label>
+                        <input type="number" step="0.1" name="life_expectancy" id="life_expectancy" min="20" max="95" required placeholder="e.g. 78.5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expected_years_schooling"><i class="fa-solid fa-graduation-cap"></i> Expected Years of Schooling</label>
+                        <input type="number" step="0.1" name="expected_years_schooling" id="expected_years_schooling" min="0" max="25" required placeholder="e.g. 14.5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mean_years_schooling"><i class="fa-solid fa-book-open"></i> Mean Years of Schooling</label>
+                        <input type="number" step="0.1" name="mean_years_schooling" id="mean_years_schooling" min="0" max="20" required placeholder="e.g. 9.2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gni_per_capita"><i class="fa-solid fa-sack-dollar"></i> GNI Per Capita (PPP $)</label>
+                        <input type="number" step="1" name="gni_per_capita" id="gni_per_capita" min="100" max="150000" required placeholder="e.g. 15000">
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">Estimate HDI Score</button>
+                </form>
+            </section>
+
+            <aside class="glass-card side-panel">
+                <div class="section-summary">
+                    <span class="info-badge">About</span>
+                    <h3>HDI Prediction Toolkit</h3>
+                    <p>Enter the key inputs that drive Human Development Index outcomes. The model estimates whether a country is in the Low, Medium, High, or Very High development tier.</p>
+                </div>
+
+                <div class="quick-list">
+                    <div>
+                        <h4>Life Expectancy</h4>
+                        <p>Longer lifespans increase development ranking.</p>
+                    </div>
+                    <div>
+                        <h4>Education</h4>
+                        <p>The balance of mean and expected schooling matters most.</p>
+                    </div>
+                    <div>
+                        <h4>Economic Standard</h4>
+                        <p>GNI indicates the income component of development.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('country').addEventListener('change', function() {
+            const selected = this.value;
+            if (selected === 'Custom Country') {
+                return;
+            }
+
+            fetch(`/get_country_data/${encodeURIComponent(selected)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+
+                    document.getElementById('life_expectancy').value = data.life_expectancy;
+                    document.getElementById('expected_years_schooling').value = data.expected_years_schooling;
+                    document.getElementById('mean_years_schooling').value = data.mean_years_schooling;
+                    document.getElementById('gni_per_capita').value = data.gni_per_capita;
+                })
+                .catch(err => console.error('Country preset load failed:', err));
+        });
+    </script>
+</body>
+</html>

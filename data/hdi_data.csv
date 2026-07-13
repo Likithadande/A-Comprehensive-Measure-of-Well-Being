@@ -1,0 +1,351 @@
+Country,Life_Expectancy,Expected_Years_Schooling,Mean_Years_Schooling,GNI_Per_Capita,HDI_Score
+Switzerland,84.0,16.5,13.9,66933,0.963
+Switzerland_Region_1,84.7,16.4,14.3,75088,0.975
+Switzerland_Region_2,83.6,16.3,14.8,71042,0.972
+Switzerland_Region_3,83.3,16.9,13.6,64439,0.958
+Switzerland_Region_4,84.4,15.0,12.9,63922,0.935
+Norway,83.2,18.2,13.0,64660,0.963
+Norway_Region_1,81.7,18.5,12.5,57354,0.946
+Norway_Region_2,85.4,18.0,13.0,57290,0.964
+Norway_Region_3,82.4,18.3,12.3,66603,0.953
+Norway_Region_4,82.3,18.0,12.6,74241,0.958
+Iceland,82.7,19.2,12.8,55782,0.96
+Iceland_Region_1,82.7,18.4,13.3,50333,0.953
+Iceland_Region_2,83.0,17.6,12.0,56660,0.938
+Iceland_Region_3,83.8,19.3,12.7,54438,0.964
+Iceland_Region_4,80.5,18.6,12.5,60499,0.944
+Hong Kong,85.5,17.3,12.2,62607,0.952
+Hong Kong_Region_1,86.0,15.9,12.4,60678,0.939
+Hong Kong_Region_2,84.5,17.8,12.8,67271,0.965
+Hong Kong_Region_3,84.2,17.1,12.4,67493,0.952
+Hong Kong_Region_4,84.8,17.2,11.5,56615,0.937
+Australia,84.5,21.0,12.7,49238,0.976
+Australia_Region_1,85.7,22.0,12.7,53190,0.982
+Australia_Region_2,85.0,20.5,12.9,55296,0.984
+Australia_Region_3,84.4,22.0,11.1,52475,0.972
+Australia_Region_4,84.6,20.8,12.8,41408,0.967
+Denmark,81.4,18.7,13.0,60365,0.955
+Denmark_Region_1,81.1,19.0,13.9,57862,0.964
+Denmark_Region_2,80.2,18.3,13.5,61952,0.952
+Denmark_Region_3,80.6,19.1,13.1,65042,0.959
+Denmark_Region_4,80.3,18.4,12.8,53297,0.938
+Sweden,83.0,19.4,12.6,54489,0.96
+Sweden_Region_1,83.4,19.6,12.6,53466,0.963
+Sweden_Region_2,80.9,19.1,12.4,50991,0.941
+Sweden_Region_3,82.8,19.7,13.7,55250,0.973
+Sweden_Region_4,83.4,19.3,11.4,54373,0.947
+Ireland,82.0,18.9,11.6,76169,0.954
+Ireland_Region_1,82.1,20.9,11.5,78006,0.973
+Ireland_Region_2,81.9,18.0,12.3,80750,0.953
+Ireland_Region_3,83.2,18.2,12.4,67626,0.958
+Ireland_Region_4,82.9,20.7,11.0,72718,0.968
+Germany,80.6,17.0,14.1,54534,0.942
+Germany_Region_1,80.7,16.6,13.2,54833,0.929
+Germany_Region_2,79.0,17.4,13.5,61295,0.937
+Germany_Region_3,79.4,16.7,14.6,49164,0.933
+Germany_Region_4,80.9,18.0,13.1,55339,0.943
+Singapore,82.8,16.5,11.9,90919,0.938
+Singapore_Region_1,83.2,17.1,11.2,81314,0.938
+Singapore_Region_2,83.6,16.7,12.1,93438,0.947
+Singapore_Region_3,81.8,16.7,12.1,85723,0.938
+Singapore_Region_4,85.6,16.9,11.2,95694,0.945
+Netherlands,81.7,18.6,12.6,57471,0.949
+Netherlands_Region_1,80.2,19.2,13.3,53697,0.951
+Netherlands_Region_2,83.1,18.9,13.1,66191,0.971
+Netherlands_Region_3,81.3,18.0,12.1,53720,0.932
+Netherlands_Region_4,81.6,18.9,12.8,61274,0.956
+Canada,82.7,16.4,13.4,46808,0.932
+Canada_Region_1,82.7,17.6,13.2,56994,0.951
+Canada_Region_2,83.6,15.7,12.8,48614,0.924
+Canada_Region_3,82.4,17.0,13.7,46535,0.939
+Canada_Region_4,81.4,15.2,13.1,50014,0.913
+United States,77.2,16.3,13.7,64765,0.922
+United States_Region_1,77.5,15.3,13.8,66761,0.916
+United States_Region_2,75.9,16.4,13.7,58843,0.911
+United States_Region_3,77.7,16.7,14.3,70224,0.939
+United States_Region_4,75.1,15.5,14.0,67427,0.908
+United Kingdom,80.7,17.2,13.4,45225,0.927
+United Kingdom_Region_1,81.5,20.3,13.7,49333,0.961
+United Kingdom_Region_2,82.1,17.7,13.2,47970,0.94
+United Kingdom_Region_3,79.5,17.0,13.1,45521,0.916
+United Kingdom_Region_4,84.2,15.7,13.8,39390,0.928
+Japan,84.8,15.2,12.5,42274,0.914
+Japan_Region_1,84.1,16.1,12.5,38629,0.915
+Japan_Region_2,83.7,15.7,12.1,43006,0.91
+Japan_Region_3,84.9,14.7,13.8,44417,0.928
+Japan_Region_4,81.8,15.3,12.1,45156,0.899
+South Korea,83.7,16.5,12.5,44059,0.924
+South Korea_Region_1,82.5,16.4,12.8,47110,0.924
+South Korea_Region_2,81.9,16.2,12.2,41756,0.906
+South Korea_Region_3,86.0,16.8,11.7,47294,0.927
+South Korea_Region_4,86.0,17.3,11.6,42352,0.925
+France,82.5,15.8,11.6,45937,0.902
+France_Region_1,84.4,15.2,11.9,48783,0.912
+France_Region_2,81.1,15.8,9.7,42172,0.868
+France_Region_3,82.1,14.8,12.6,40681,0.897
+France_Region_4,81.8,15.9,12.5,40660,0.905
+Spain,83.0,17.9,10.6,38354,0.905
+Spain_Region_1,84.7,17.9,10.0,39771,0.908
+Spain_Region_2,83.3,17.4,10.6,37171,0.9
+Spain_Region_3,83.2,18.4,11.6,34555,0.917
+Spain_Region_4,86.0,16.3,10.5,40159,0.899
+Italy,82.9,16.2,10.7,42840,0.894
+Italy_Region_1,83.3,15.7,10.6,41150,0.888
+Italy_Region_2,82.0,16.9,10.9,40465,0.896
+Italy_Region_3,84.2,16.4,11.2,44997,0.911
+Italy_Region_4,81.7,15.8,11.1,44931,0.891
+United Arab Emirates,78.7,15.7,12.7,62596,0.911
+United Arab Emirates_Region_1,78.7,15.8,13.5,59633,0.919
+United Arab Emirates_Region_2,79.5,15.5,12.6,68098,0.915
+United Arab Emirates_Region_3,79.9,16.4,13.5,62701,0.933
+United Arab Emirates_Region_4,79.7,15.5,12.9,61944,0.916
+Chile,78.9,16.7,10.9,24695,0.854
+Chile_Region_1,79.0,17.2,10.4,28828,0.862
+Chile_Region_2,77.4,15.7,11.6,26259,0.849
+Chile_Region_3,79.8,17.2,10.9,22922,0.86
+Chile_Region_4,79.0,16.2,11.5,24404,0.856
+Argentina,75.4,17.9,11.1,20927,0.842
+Argentina_Region_1,74.2,17.6,11.3,19983,0.833
+Argentina_Region_2,74.2,18.1,11.2,20078,0.836
+Argentina_Region_3,74.7,18.1,10.2,18570,0.824
+Argentina_Region_4,74.3,17.7,11.3,23396,0.842
+Croatia,77.6,15.1,11.8,30132,0.853
+Croatia_Region_1,78.9,15.0,11.8,27715,0.854
+Croatia_Region_2,77.6,14.9,12.0,28137,0.85
+Croatia_Region_3,78.4,16.3,11.7,31100,0.869
+Croatia_Region_4,78.6,14.8,11.9,30162,0.856
+Uruguay,75.4,16.8,9.0,21269,0.809
+Uruguay_Region_1,75.5,16.2,9.0,22116,0.805
+Uruguay_Region_2,77.6,17.6,10.3,19963,0.839
+Uruguay_Region_3,76.7,16.9,10.3,19893,0.828
+Uruguay_Region_4,74.1,16.3,7.7,20374,0.78
+Turkey,76.0,18.3,8.6,31024,0.84
+Turkey_Region_1,74.9,18.4,8.8,35680,0.845
+Turkey_Region_2,77.4,17.8,8.1,32244,0.838
+Turkey_Region_3,74.0,19.8,9.3,29859,0.85
+Turkey_Region_4,73.4,19.4,8.5,34096,0.841
+Sri Lanka,76.4,14.1,10.8,12567,0.781
+Sri Lanka_Region_1,74.0,13.6,10.8,12614,0.765
+Sri Lanka_Region_2,75.7,14.6,10.2,12423,0.775
+Sri Lanka_Region_3,76.6,14.5,11.2,11436,0.785
+Sri Lanka_Region_4,74.1,15.1,11.0,11814,0.778
+Brazil,72.8,15.6,8.1,14370,0.754
+Brazil_Region_1,75.1,15.7,8.8,14447,0.774
+Brazil_Region_2,75.9,17.0,8.0,15486,0.785
+Brazil_Region_3,73.8,16.7,7.5,15158,0.765
+Brazil_Region_4,74.4,14.2,7.4,12025,0.729
+China,78.2,14.2,7.8,17504,0.77
+China_Region_1,77.8,14.8,8.7,17607,0.787
+China_Region_2,80.6,13.1,6.8,17426,0.754
+China_Region_3,78.8,14.2,6.6,17379,0.757
+China_Region_4,76.2,14.7,8.0,16187,0.765
+Mexico,70.2,14.9,8.7,17896,0.752
+Mexico_Region_1,69.4,14.1,8.7,19263,0.744
+Mexico_Region_2,68.7,15.3,8.4,16760,0.742
+Mexico_Region_3,70.0,14.1,8.4,16181,0.735
+Mexico_Region_4,73.1,14.9,8.3,18202,0.763
+Thailand,78.7,15.6,8.8,17030,0.799
+Thailand_Region_1,78.5,15.4,9.2,18062,0.804
+Thailand_Region_2,77.9,15.1,8.6,13893,0.777
+Thailand_Region_3,76.4,16.7,9.8,16690,0.809
+Thailand_Region_4,79.6,15.8,10.6,18555,0.831
+Colombia,72.8,14.4,8.9,14324,0.751
+Colombia_Region_1,72.6,13.6,7.9,14557,0.731
+Colombia_Region_2,71.7,13.3,8.5,13084,0.726
+Colombia_Region_3,75.3,15.1,8.9,16019,0.776
+Colombia_Region_4,72.9,13.7,9.8,14941,0.758
+Peru,72.4,15.4,9.2,12246,0.755
+Peru_Region_1,70.8,15.2,8.7,10891,0.733
+Peru_Region_2,73.8,16.9,8.4,12797,0.769
+Peru_Region_3,71.4,15.0,8.8,11399,0.738
+Peru_Region_4,72.5,14.7,9.4,12196,0.751
+Algeria,76.4,14.6,8.0,10800,0.744
+Algeria_Region_1,76.0,13.9,7.7,11452,0.735
+Algeria_Region_2,77.2,13.8,8.1,11449,0.744
+Algeria_Region_3,73.9,15.0,7.6,11292,0.735
+Algeria_Region_4,75.3,13.2,7.0,10841,0.712
+Ecuador,73.7,14.9,8.8,10312,0.742
+Ecuador_Region_1,74.1,14.2,9.2,8941,0.734
+Ecuador_Region_2,73.6,13.9,8.4,10351,0.727
+Ecuador_Region_3,72.4,14.6,9.4,9836,0.738
+Ecuador_Region_4,75.0,14.0,9.1,11501,0.749
+Ukraine,71.6,15.0,11.4,13256,0.776
+Ukraine_Region_1,67.9,14.4,11.7,13040,0.754
+Ukraine_Region_2,72.2,14.5,11.5,13090,0.775
+Ukraine_Region_3,73.4,15.2,11.6,12819,0.787
+Ukraine_Region_4,70.9,14.7,11.6,12809,0.77
+Iran,73.9,14.6,10.6,12578,0.772
+Iran_Region_1,74.3,16.3,11.1,12249,0.793
+Iran_Region_2,75.7,14.3,9.4,11563,0.759
+Iran_Region_3,71.1,14.3,10.6,14264,0.762
+Iran_Region_4,74.4,14.4,11.1,10353,0.767
+Egypt,70.2,13.8,9.6,11732,0.731
+Egypt_Region_1,70.6,14.4,8.7,12805,0.733
+Egypt_Region_2,70.7,13.5,10.0,13863,0.744
+Egypt_Region_3,70.5,14.0,9.3,10934,0.728
+Egypt_Region_4,71.4,13.1,9.6,11283,0.728
+Vietnam,73.6,13.7,8.4,7867,0.711
+Vietnam_Region_1,74.3,14.0,9.0,7546,0.722
+Vietnam_Region_2,73.2,12.9,8.1,8104,0.699
+Vietnam_Region_3,74.7,13.0,8.9,8720,0.72
+Vietnam_Region_4,74.2,15.2,7.9,7083,0.717
+Morocco,74.0,14.2,5.9,7303,0.683
+Morocco_Region_1,71.3,15.4,6.3,7270,0.688
+Morocco_Region_2,74.4,13.3,7.4,7378,0.695
+Morocco_Region_3,74.2,14.8,6.2,7433,0.695
+Morocco_Region_4,72.8,14.6,7.0,8089,0.701
+India,67.2,11.9,6.7,6590,0.634
+India_Region_1,69.6,11.5,6.1,6523,0.631
+India_Region_2,67.3,12.8,5.7,7396,0.637
+India_Region_3,67.0,11.6,6.1,5717,0.615
+India_Region_4,68.4,12.0,5.9,5907,0.624
+Indonesia,67.6,13.7,8.6,11466,0.705
+Indonesia_Region_1,67.1,15.0,8.4,10087,0.706
+Indonesia_Region_2,67.2,13.5,7.0,11416,0.681
+Indonesia_Region_3,67.3,14.3,9.7,12499,0.726
+Indonesia_Region_4,67.2,12.8,10.1,11520,0.712
+Philippines,69.3,13.1,9.0,8920,0.699
+Philippines_Region_1,69.3,13.1,9.1,8816,0.7
+Philippines_Region_2,68.4,12.7,9.0,8532,0.689
+Philippines_Region_3,68.2,13.2,8.8,9993,0.698
+Philippines_Region_4,65.3,14.0,9.7,7440,0.686
+Iraq,69.1,12.1,7.3,9977,0.673
+Iraq_Region_1,68.6,11.8,6.5,9356,0.653
+Iraq_Region_2,67.4,13.5,7.9,10991,0.691
+Iraq_Region_3,70.2,11.2,7.0,10367,0.666
+Iraq_Region_4,67.3,12.7,7.2,9677,0.668
+Tajikistan,71.6,11.7,11.3,3885,0.675
+Tajikistan_Region_1,72.7,12.1,11.1,4245,0.687
+Tajikistan_Region_2,70.0,12.2,11.7,3788,0.675
+Tajikistan_Region_3,72.1,10.7,10.7,3827,0.661
+Tajikistan_Region_4,70.8,12.5,10.9,3447,0.667
+Bangladesh,72.4,12.4,6.2,5472,0.645
+Bangladesh_Region_1,70.1,12.9,5.4,6240,0.637
+Bangladesh_Region_2,69.3,13.8,6.3,5429,0.648
+Bangladesh_Region_3,71.6,12.7,6.2,5954,0.65
+Bangladesh_Region_4,72.6,12.5,6.0,5447,0.644
+Pakistan,66.1,8.6,4.5,4624,0.543
+Pakistan_Region_1,66.6,7.2,3.7,4898,0.515
+Pakistan_Region_2,66.4,8.5,4.5,4752,0.544
+Pakistan_Region_3,65.3,8.0,4.6,4262,0.529
+Pakistan_Region_4,66.7,7.2,5.1,4798,0.538
+Nepal,68.4,12.9,5.1,3854,0.601
+Nepal_Region_1,68.8,13.7,6.1,4166,0.627
+Nepal_Region_2,65.6,11.9,4.7,3862,0.574
+Nepal_Region_3,69.2,12.3,5.2,3621,0.596
+Nepal_Region_4,67.5,11.8,4.5,3437,0.571
+Cambodia,69.6,11.5,5.1,4079,0.594
+Cambodia_Region_1,68.1,12.3,4.5,4937,0.598
+Cambodia_Region_2,70.3,11.6,4.6,4307,0.594
+Cambodia_Region_3,68.7,11.6,6.6,4047,0.61
+Cambodia_Region_4,71.3,10.9,5.1,4656,0.6
+Kenya,61.4,11.3,6.7,4474,0.581
+Kenya_Region_1,60.5,12.7,7.1,4272,0.593
+Kenya_Region_2,62.3,12.1,7.1,3911,0.591
+Kenya_Region_3,60.3,11.1,6.7,4696,0.577
+Kenya_Region_4,61.7,10.2,6.9,4692,0.576
+Angola,61.6,12.2,5.4,5466,0.585
+Angola_Region_1,62.4,13.1,5.9,5666,0.606
+Angola_Region_2,61.5,10.9,5.7,5556,0.576
+Angola_Region_3,62.0,11.2,4.8,5926,0.573
+Angola_Region_4,61.5,12.7,5.4,5479,0.59
+Syria,72.1,9.2,5.1,4140,0.577
+Syria_Region_1,73.5,8.8,5.2,3986,0.576
+Syria_Region_2,71.4,9.0,5.2,3981,0.571
+Syria_Region_3,74.0,8.5,5.0,3994,0.571
+Syria_Region_4,74.3,9.4,5.7,3647,0.589
+Myanmar,65.7,10.9,6.4,3852,0.585
+Myanmar_Region_1,66.1,11.6,6.4,4180,0.598
+Myanmar_Region_2,64.9,12.0,7.8,3740,0.608
+Myanmar_Region_3,65.0,12.1,7.3,3690,0.602
+Myanmar_Region_4,65.1,10.7,5.6,3568,0.566
+Nigeria,52.7,10.1,5.2,4790,0.511
+Nigeria_Region_1,51.2,9.5,5.2,4879,0.498
+Nigeria_Region_2,55.0,9.3,5.8,4707,0.521
+Nigeria_Region_3,52.6,10.6,4.5,4936,0.508
+Nigeria_Region_4,52.9,10.5,5.4,5730,0.527
+Rwanda,66.1,11.2,4.4,2214,0.534
+Rwanda_Region_1,65.1,10.8,4.0,2115,0.518
+Rwanda_Region_2,65.1,12.2,5.3,2112,0.548
+Rwanda_Region_3,64.9,11.6,4.1,2326,0.532
+Rwanda_Region_4,66.4,10.0,5.3,2532,0.541
+Tanzania,66.2,9.2,6.4,2660,0.549
+Tanzania_Region_1,65.3,8.9,6.6,2731,0.546
+Tanzania_Region_2,67.2,10.8,6.3,2490,0.564
+Tanzania_Region_3,64.1,8.6,6.4,3041,0.541
+Tanzania_Region_4,65.4,9.4,6.4,2912,0.553
+Uganda,62.7,10.1,5.7,2181,0.524
+Uganda_Region_1,66.5,9.7,5.4,2363,0.536
+Uganda_Region_2,63.7,11.6,6.1,2118,0.546
+Uganda_Region_3,63.6,11.0,6.2,2269,0.545
+Uganda_Region_4,64.3,11.0,6.5,2294,0.552
+Yemen,63.8,9.1,3.2,1314,0.455
+Yemen_Region_1,63.5,9.2,3.9,1228,0.461
+Yemen_Region_2,64.4,8.8,3.2,1448,0.459
+Yemen_Region_3,64.1,9.1,2.4,1392,0.448
+Yemen_Region_4,64.8,10.8,3.0,1337,0.476
+Ethiopia,65.0,9.7,3.2,2361,0.499
+Ethiopia_Region_1,65.4,11.0,3.1,2413,0.516
+Ethiopia_Region_2,65.9,9.8,2.9,2397,0.5
+Ethiopia_Region_3,66.6,8.9,3.3,2228,0.493
+Ethiopia_Region_4,66.8,8.5,2.9,2432,0.487
+Madagascar,64.5,10.1,4.8,1484,0.497
+Madagascar_Region_1,66.8,10.0,4.5,1707,0.509
+Madagascar_Region_2,62.3,8.3,5.1,1424,0.471
+Madagascar_Region_3,63.0,10.7,4.9,1417,0.496
+Madagascar_Region_4,62.6,10.8,5.2,1472,0.501
+Afghanistan,62.5,10.3,3.0,1824,0.48
+Afghanistan_Region_1,65.3,9.4,2.1,1723,0.463
+Afghanistan_Region_2,62.4,10.5,2.9,1875,0.482
+Afghanistan_Region_3,60.6,11.5,3.0,1987,0.491
+Afghanistan_Region_4,63.0,10.7,3.3,1889,0.493
+Sudan,65.3,8.0,3.8,3575,0.508
+Sudan_Region_1,66.3,9.1,3.9,3777,0.531
+Sudan_Region_2,65.2,9.2,3.4,4090,0.524
+Sudan_Region_3,65.2,6.9,3.9,3380,0.492
+Sudan_Region_4,66.6,7.5,3.5,3034,0.493
+Haiti,63.2,9.7,5.6,2848,0.535
+Haiti_Region_1,62.5,7.8,4.6,3021,0.499
+Haiti_Region_2,64.4,10.0,5.0,2837,0.535
+Haiti_Region_3,63.2,8.8,6.5,3047,0.541
+Haiti_Region_4,62.9,9.7,5.7,2382,0.526
+Chad,52.5,8.0,2.6,1364,0.394
+Chad_Region_1,52.1,7.5,2.0,1333,0.376
+Chad_Region_2,55.2,8.5,2.3,1426,0.408
+Chad_Region_3,54.6,8.7,2.6,1293,0.407
+Chad_Region_4,53.5,8.3,3.1,1433,0.411
+Niger,61.6,7.0,2.1,1240,0.401
+Niger_Region_1,63.2,6.6,2.9,1259,0.414
+Niger_Region_2,64.7,6.4,3.1,1259,0.42
+Niger_Region_3,60.6,6.6,1.9,1282,0.39
+Niger_Region_4,62.4,6.5,2.1,1452,0.404
+Central African Republic,53.9,8.0,4.3,966,0.403
+Central African Republic_Region_1,56.5,8.3,4.3,975,0.416
+Central African Republic_Region_2,54.8,7.2,4.1,837,0.387
+Central African Republic_Region_3,54.5,8.5,4.0,1087,0.413
+Central African Republic_Region_4,52.1,6.8,4.4,1046,0.389
+South Sudan,55.0,5.5,5.7,768,0.384
+South Sudan_Region_1,57.5,5.1,5.1,765,0.381
+South Sudan_Region_2,54.7,6.2,6.1,671,0.386
+South Sudan_Region_3,57.2,6.6,5.3,792,0.401
+South Sudan_Region_4,55.7,5.7,5.4,726,0.382
+Burundi,61.7,10.7,3.1,732,0.426
+Burundi_Region_1,61.7,11.6,3.4,710,0.436
+Burundi_Region_2,62.9,8.4,3.8,630,0.404
+Burundi_Region_3,61.2,9.8,2.3,799,0.411
+Burundi_Region_4,61.0,11.0,3.1,759,0.429
+Mali,58.9,7.4,2.3,2133,0.427
+Mali_Region_1,59.0,6.4,2.9,2048,0.422
+Mali_Region_2,56.6,7.1,3.2,2278,0.432
+Mali_Region_3,58.4,7.1,2.1,2487,0.425
+Mali_Region_4,59.5,7.7,2.9,2173,0.444
+Somalia,55.3,7.3,2.5,1100,0.383
+Somalia_Region_1,54.9,7.1,2.5,1096,0.379
+Somalia_Region_2,56.4,7.3,2.9,1092,0.393
+Somalia_Region_3,55.4,5.7,3.0,1130,0.372
+Somalia_Region_4,56.8,5.0,3.8,1087,0.378
+Sierra Leone,60.1,10.2,3.7,1621,0.473
+Sierra Leone_Region_1,61.8,9.4,4.1,1484,0.471
+Sierra Leone_Region_2,59.2,11.7,3.6,1649,0.484
+Sierra Leone_Region_3,61.4,10.6,3.8,1668,0.485
+Sierra Leone_Region_4,63.7,10.2,3.8,1757,0.492

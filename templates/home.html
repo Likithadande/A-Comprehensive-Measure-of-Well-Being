@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDI Predictor - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="glass-bg-glow"></div>
+    <div class="glass-bg-glow secondary"></div>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-earth-americas"></i></span>
+                <span class="logo-text">HDI Predictor</span>
+            </div>
+            <nav class="nav-links">
+                <a href="/predict" class="btn btn-secondary">Predict</a>
+            </nav>
+        </header>
+
+        <section class="hero-card glass-card">
+            <div class="hero-content">
+                <h1>Measure Well-Being with Data-Driven HDI Insights</h1>
+                <p>Explore an intelligent Human Development Index predictor built on socio-economic data. Use the interactive tool to forecast HDI and discover targeted improvement recommendations.</p>
+                <div class="hero-actions">
+                    <a href="/predict" class="btn btn-submit">Start Predicting</a>
+                    <a href="#featured" class="btn btn-secondary">Featured Countries</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-value">4</span>
+                    <span class="stat-label">Development Indicators</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">10</span>
+                    <span class="stat-label">Featured Countries</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">3</span>
+                    <span class="stat-label">Pages of Insights</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards-row">
+            <article class="glass-card feature-card">
+                <span class="feature-icon"><i class="fa-solid fa-rocket"></i></span>
+                <h2>Fast HDI Forecasts</h2>
+                <p>Get instant HDI predictions from life expectancy, schooling, and income inputs with model-backed scores.</p>
+            </article>
+            <article class="glass-card feature-card">
+                <span class="feature-icon"><i class="fa-solid fa-chart-simple"></i></span>
+                <h2>Built for Exploration</h2>
+                <p>Review model performance charts, compare development tiers, and learn how each metric affects results.</p>
+            </article>
+            <article class="glass-card feature-card">
+                <span class="feature-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                <h2>Actionable Guidance</h2>
+                <p>Receive tier-based recommendations that highlight education, health, and economic policies that matter most.</p>
+            </article>
+        </section>
+
+        <section class="glass-card featured-section" id="featured">
+            <div class="section-header">
+                <h2>Featured Country Presets</h2>
+                <p>Start with some common country profiles or open the full prediction page to customize every metric.</p>
+            </div>
+            <div class="featured-grid">
+                {% for country in featured_countries %}
+                <div class="featured-tag">{{ country }}</div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="glass-card feature-details">
+            <h2>Why Use an HDI Predictor?</h2>
+            <div class="feature-list">
+                <div>
+                    <h3><i class="fa-solid fa-heart-pulse"></i> Health</h3>
+                    <p>Analyze how life expectancy contributes to development ranking and human wellbeing.</p>
+                </div>
+                <div>
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                    <p>Model the impact of expected and mean schooling on scores to identify learning gaps.</p>
+                </div>
+                <div>
+                    <h3><i class="fa-solid fa-dollar-sign"></i> Economy</h3>
+                    <p>Understand how income per capita influences HDI and where investments can create the biggest lift.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
